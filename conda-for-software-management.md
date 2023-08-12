@@ -282,6 +282,7 @@ custom_channels:
 show_channel_urls: true
 ```
 
+
 在学会安装软件后，另一个操作就是卸载软件，这就相对比较简单，只需要调用子命令`remove`
 
 ```bash
@@ -425,18 +426,26 @@ STAR --verison
 2.7.9a
 ```
 
-需要注意的是，conda的`acitvate`在不同版本conda中变化很大，例如你想要在shell脚本中使用`conda activate 环境名`的方式启用环境，在一些版本中是可行的，在某一些版本会提示找不到`activate`。
+这里补充一个`mamba install`命令的另外一个用途，那就是更改软件的安装版本，以这里安装的STAR为例，如果需要更新成2.7.10b版本，且Build为h9ee0642_0，命令可以写作
+
+```bash
+mamba install -c bioconda -c conda-forge STAR=2.7.10b=h9ee0642_0
+
+STAR --version
+# 输出信息如下
+2.7.10b
+```
+
+再补充一个知识点，conda的`acitvate`在不同版本conda中变化很大，例如你想要在shell脚本中使用`conda activate 环境名`的方式启用环境，在一些版本中是可行的，在某一些版本会提示找不到`activate`。
 因此一种更好的方法是通过`run`子命令，例如
 
 ```bash
 conda run -n rna-seq STAR --version
-# 输出信息如下
-2.7.9a
 ```
 
 启动环境后，如果需要退出当前环境，只需要运行`conda deactivate`即可。
 
-如果你需要删除某个指定环境，这里有两种方式
+如果你需要**删除**某个指定环境，这里有两种方式
 
 一种是使用`remove`子命令，通过使用`--all`表明删除指定环境下的所有内容，效果就是删除指定环境了。
 
@@ -479,6 +488,7 @@ mamba env create -f rna-seq.yaml -n rna-seq2
 - 导入环境`mamba env create`
 
 
+
 ## 其他
 
 强烈建议不要自启动base环境，这会导致一些工具出现编译问题，设置方法如下
@@ -492,6 +502,7 @@ conda config --set auto_activate_base false
 ```
 conda config --set show_channel_urls yes
 ```
+
 
 
 参考资料
