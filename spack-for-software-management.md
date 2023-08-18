@@ -489,6 +489,5 @@ spack env activate rna-seq
 
 
 参考资料
-
  
-- [【无用的知识增加了】如何安装一个R包]: https://mp.weixin.qq.com/s/Cb5MEsThcXNDXCFrE3spsg
+- 【无用的知识增加了】如何安装一个R包: https://mp.weixin.qq.com/s/Cb5MEsThcXNDXCFrE3spsg
