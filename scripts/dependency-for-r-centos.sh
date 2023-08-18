@@ -10,3 +10,4 @@ yum install java-1.8.0-openjdk
 yum install *gfortran*
 yum install zlib*
 yum install bzip2-* 
+yum install harfbuzz-devel fribidi-devel
